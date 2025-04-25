@@ -21,10 +21,6 @@ tasks:
   - name: ~/winget
     parameters:
       package: Microsoft.WindowsTerminal.Preview
-
-  - name: ~/powershell
-    parameters:
-      command: winget remove Microsoft.WindowsTerminal
   
   - name: ~/winget
     parameters:
