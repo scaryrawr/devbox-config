@@ -1,0 +1,52 @@
+$schema: "1.0"
+name: "mike-custom"
+description: "This definition is for Mike's customizations to https://devbox.microsoft.com"
+
+tasks:
+  - name: ~/winget
+    parameters:
+      package: ScaryRawr.SL
+  - name: ~/winget
+    parameters:
+      package: dandavison.delta
+  - name: ~/winget
+    parameters:
+      package: junegunn.fzf
+  - name: ~/winget
+    parameters:
+      package: Microsoft.PowerToys
+  - name: ~/winget
+    parameters:
+      package: Microsoft.PowerShell.Preview
+  - name: ~/winget
+    parameters:
+      package: Microsoft.WindowsTerminal.Preview
+
+  - name: ~/powershell
+    parameters:
+      command: winget remove Microsoft.WindowsTerminal
+  
+  - name: ~/winget
+    parameters:
+      downloadUrl: 'https://raw.githubusercontent.com/scaryrawr/devbox-config/main/config.dsc.yaml'
+  
+  - name: ~/powershell
+    parameters:
+      command: setx /M GithubLocation D:\GitHub
+
+  - name: ~/git-clone
+    parameters:
+      repositoryUrl: https://github.com/scaryrawr/flare
+      directory: D:\GitHub
+  - name: ~/git-clone
+    parameters:
+      repositoryUrl: https://github.com/scaryrawr/winwal
+      directory: D:\GitHub
+  - name: ~/git-clone
+    parameters:
+      repositoryUrl: https://github.com/scaryrawr/base16-windows-terminal
+      directory: D:\GitHub
+  - name: ~/git-clone
+    parameters:
+      repositoryUrl: https://github.com/scaryrawr/fedora-wsl
+      directory: D:\GitHub

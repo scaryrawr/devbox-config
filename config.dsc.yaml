@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=https://aka.ms/configuration-dsc-schema/0.2
+properties:
+  configurationVersion: 0.2.0
+  resources:
+    - resource: PSDscResources/Script
+      directives:
+        description: Configure Git
+      settings:
+        SetScript: |
+          git config --system init.defaultBranch main
+          git config --system mergetool.keepBackup false
+          git config --system pull.rebase true
+        GetScript: return $false
+        TestScript: return $false
