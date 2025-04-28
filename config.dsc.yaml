@@ -12,3 +12,23 @@ properties:
           git config --system pull.rebase true
         GetScript: return $false
         TestScript: return $false
+    - resource: PSDscResources/Script
+      directives:
+        description: Cascadia Code NF
+      settings:
+        SetScript: |
+          Invoke-WebRequest -Uri "https://github.com/microsoft/cascadia-code/releases/download/v2407.24/CascadiaCode-2407.24.zip" -OutFile "$env:TEMP\CascadiaCode.zip"
+          Expand-Archive -Path "$env:TEMP\CascadiaCode.zip" -DestinationPath "$env:TEMP\CascadiaCode" -Force
+          Get-ChildItem -Path "$env:TEMP\CascadiaCode\ttf\*.ttf" | ForEach-Object {
+            $fontPath = $_.FullName
+            $fontName = [System.IO.Path]::GetFileNameWithoutExtension($fontPath)
+            $destinationPath = "C:\Windows\Fonts\$fontName.ttf"
+              
+            # Copy the font to the Fonts directory
+            Write-Host "Copying $fontPath to $destinationPath"
+            Copy-Item -Path $fontPath -Destination $destinationPath -Force
+            Write-Host "Updating Registry "
+            New-ItemProperty -Name $_.BaseName -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\Fonts" -PropertyType string -Value $_.Name
+          }
+        GetScript: return $false
+        TestScript: return $false
