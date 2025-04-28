@@ -21,6 +21,9 @@ tasks:
   - name: ~/winget
     parameters:
       package: Microsoft.WindowsTerminal.Preview
+  - name: ~/winget
+    parameters:
+      package: Python.Python.3.13
   
   - name: ~/winget
     parameters:
