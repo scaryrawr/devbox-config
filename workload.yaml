@@ -24,6 +24,9 @@ tasks:
   - name: ~/winget
     parameters:
       package: Python.Python.3.13
+  - name: ~/winget
+    parameters:
+      package: ImageMagick.ImageMagick
 
   - name: ~/winget
     parameters:
