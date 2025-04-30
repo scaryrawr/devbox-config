@@ -24,7 +24,7 @@ tasks:
   - name: ~/winget
     parameters:
       package: Python.Python.3.13
-  
+
   - name: ~/winget
     parameters:
       downloadUrl: 'https://raw.githubusercontent.com/scaryrawr/devbox-config/main/config.dsc.yaml'
