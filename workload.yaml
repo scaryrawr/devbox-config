@@ -11,9 +11,6 @@ tasks:
       package: dandavison.delta
   - name: ~/winget
     parameters:
-      package: junegunn.fzf
-  - name: ~/winget
-    parameters:
       package: Microsoft.PowerToys
   - name: ~/winget
     parameters:
@@ -51,4 +48,8 @@ tasks:
   - name: ~/git-clone
     parameters:
       repositoryUrl: https://github.com/scaryrawr/fedora-wsl
+      directory: D:\GitHub
+  - name: ~/git-clone
+    parameters:
+      repositoryUrl: https://github.com/scaryrawr/fzf.pwsh
       directory: D:\GitHub
